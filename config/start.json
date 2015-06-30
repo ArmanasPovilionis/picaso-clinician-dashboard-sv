@@ -1,0 +1,29 @@
+{
+    "http": {
+        "port": 8080,
+        "ipaddress": "127.0.0.1",
+        "secure": true,
+        "key": "localhost.key",
+        "cert": "localhost.cert"
+    },
+    "database": {
+        "contactPoints": ["localhost"],
+        "keyspace": "sessions",
+        "protocolOptions": {
+            "port": 9042
+        },
+        "socketOptions": {
+            "connectTimeout": 2000
+        },
+        "queryOptions": {
+            "fetchSize": 10000,
+            "autoPage": true,
+            "prepare": true,
+            "ttl": 86400
+        },
+        "authProvider": {
+            "username": "",
+            "password": ""
+        }
+    }
+}

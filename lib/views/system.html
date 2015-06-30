@@ -1,0 +1,30 @@
+<% include include/header.html %>
+
+<table class="table">
+    <tr>
+        <th>Software</th>
+        <td><%= settings.pkg.name %> (<%= settings.pkg.description %>)</td>
+    </tr>
+    <tr>
+        <th>Software version</th>
+        <td><%= settings.pkg.version %></td>
+    </tr>
+    <tr>
+        <th>Node binary</th>
+        <td><code><%= settings.worker.process.execPath %></code></td>
+    </tr>
+    <tr>
+        <th>Node version</th>
+        <td><%= settings.worker.process.version %></td>
+    </tr>
+    <tr>
+        <th>Working directory</th>
+        <td><code><%= settings.worker.process.cwd() %></code></td>
+    </tr>
+    <tr>
+        <th>Process ID</th>
+        <td><%= settings.worker.process.pid %></td>
+    </tr>
+</table>
+
+<% include include/footer.html %>

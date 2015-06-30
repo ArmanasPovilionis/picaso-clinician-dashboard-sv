@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title><%= settings.pkg.name %> :: <%= header %></title>
+    <link href="/images/favicon.ico" type="image/x-icon" rel="shortcut icon">
+	<link href="/css/main.css" type="text/css" rel="stylesheet">
+    <script src="/scripts/modernizr.custom.28956.js"></script>
+</head>
+<body>
+    <% var menu = [
+        { name : "index", title : "Home", glyphicon: "glyphicon-home" },
+        { name : "system", title : "System", glyphicon: "glyphicon-signal" },
+        { name : "license", title : "License", glyphicon: "glyphicon-download-alt" } ];
+    %>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand">express4-skeleton</span>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <% for (var i = 0; i < menu.length; i++) { %>
+                    <% if (menu[i].name === menu_name) { %>
+                    <li class="active"><a href="#"><span
+                        class="glyphicon <%= menu[i].glyphicon %>"
+                        aria-hidden="true"></span>&nbsp;&nbsp;<%= menu[i].title %></a></li>
+                    <% } else { %>
+                    <li><a href="/<%= menu[i].name %>.html"><span
+                        class="glyphicon <%= menu[i].glyphicon %>"
+                        aria-hidden="true"></span>&nbsp;&nbsp;<%= menu[i].title %></a></li>
+                    <% } } %>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container">
+        <main id="main" role="main">
+            <section>
+                <article>
+                    <header role="banner">
+                        <h1><%= header %></h1>
+                    </header>

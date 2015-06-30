@@ -1,2 +1,27 @@
 # express4-skeleton
-Web application skeleton for a express application
+
+This is just an example [Express.js](http://expressjs.com/) web
+application skeleton targeted to demonstrate some of the facilities offered
+by the framework. Additionally, it is integrated with a barebones version of
+[Bootstrap](http://getbootstrap.com/).
+
+## Characteristics
+
+- Fully configurable via JSON file
+- Automatic creation of a c4luster
+- Scalable session storage via [cassandra-store](https://github.com/webcc/cassandra-store),
+including checking of database availability at startup
+- Handling of HTTP 404 errors
+
+## Start-up
+
+Execute:
+
+```
+$ node --harmony index.js
+```
+
+## TO-DOs
+
+- Check port availability
+- Sticky sessions
