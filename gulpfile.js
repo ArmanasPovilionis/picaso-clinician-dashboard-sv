@@ -1,6 +1,14 @@
+'use strict';
+
 var gulp = require('gulp');
+var wrench = require('wrench');
 
-gulp.task('default', function() {
-  "use strict";
-
+/**
+ *  Recursively load all gulp tasks defined in the gulp directory.
+ */
+wrench.readdirSyncRecursive('./gulp').filter(function(file) {
+  return (/\.(js|coffee)$/i).test(file);
+}).map(function(file) {
+  require('./gulp/' + file);
 });
+
