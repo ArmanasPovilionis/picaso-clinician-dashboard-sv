@@ -1,39 +1,40 @@
 {
-    "name": "express4-skeleton",
-    "description": "Web application skeleton for an express.js application",
-    "version": "0.0.1",
-    "author": {
-        "name": "Web Compliance Center",
-        "email": "webcc@fit.fraunhofer.de"
-    },
-    "dependencies": {
-        "body-parser": "1.12.3",
-        "cassandra-driver": "2.0.1",
-        "cassandra-store": "1.0.1",
-        "compression": "1.4.3",
-        "ejs": "2.3.1",
-        "express": "4.12.3",
-        "express-session": "1.11.1",
-        "minimist": "1.1.1",
-        "morgan": "1.5.2",
-        "serve-favicon": "2.2.0",
-        "underscore": "1.8.3",
-        "uuid": "2.0.1"
-    },
-    "devDependencies": {
-        "mocha": "*"
-    },
-    "main": "index",
-    "license": {
-        "type": "Apache-2.0",
-        "url": "https://github.com/webcc/express4-skeleton/blob/master/LICENSE.md"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/webcc/express4-skeleton.git"
-    },
-    "readmeFilename": "README.md",
-    "engines": {
-        "node": ">=0.12.0"
-    }
+  "name": "express4-skeleton",
+  "description": "Web application skeleton for an express.js application",
+  "version": "0.0.1",
+  "author": {
+    "name": "Web Compliance Center",
+    "email": "webcc@fit.fraunhofer.de"
+  },
+  "dependencies": {
+    "body-parser": "1.12.3",
+    "cassandra-driver": "2.0.1",
+    "cassandra-store": "1.0.1",
+    "compression": "1.4.3",
+    "ejs": "2.3.1",
+    "express": "4.12.3",
+    "express-session": "1.11.1",
+    "minimist": "1.1.1",
+    "morgan": "1.5.2",
+    "serve-favicon": "2.2.0",
+    "underscore": "1.8.3",
+    "uuid": "2.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "mocha": "*"
+  },
+  "main": "index",
+  "license": {
+    "type": "Apache-2.0",
+    "url": "https://github.com/webcc/express4-skeleton/blob/master/LICENSE.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webcc/express4-skeleton.git"
+  },
+  "readmeFilename": "README.md",
+  "engines": {
+    "node": ">=0.12.0"
+  }
 }
