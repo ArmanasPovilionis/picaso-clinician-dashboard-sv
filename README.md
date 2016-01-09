@@ -7,6 +7,7 @@ by the framework. Additionally, it is integrated with a barebones version of
 
 ## Characteristics
 
+- Compatible with Node.js 4.x or higher
 - Fully configurable via JSON file
 - Automatic creation of a c4luster
 - Scalable session storage via [cassandra-store](https://github.com/webcc/cassandra-store),
@@ -18,7 +19,7 @@ including checking of database availability at startup
 Execute:
 
 ```
-$ node --harmony index.js
+$ node index.js
 ```
 
 ## TO-DOs

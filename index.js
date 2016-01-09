@@ -1,140 +1,85 @@
 "use strict";
 
-var cassandra = require("cassandra-driver");
-var domain = require("domain");
-var main = domain.create();
+const cassandra = require("cassandra-driver");
+const cluster = require("cluster");
+const cpus = require("os").cpus().length;
+const path = require("path");
+const Utils = require("./lib/Utils");
+const config = require(path.join(__dirname, "config", "start.json"));
+const pkg = require(path.join(__dirname, "package.json"));
+const debug = require("debug")(pkg.name);
 
-main.on("error", function (error)
+process.title = pkg.name;
+config.basedir = __dirname;
+Utils.argsParser(config);
+if(config.http.secure)
 {
-    if(error instanceof cassandra.errors.NoHostAvailableError)
-    {
-        console.error("[main:db] " + JSON.stringify(error.innerErrors, null, 0));
-    }
-    else
-    {
-        console.error("[main] " + error.message);
-        console.error("[main]\n" + error.stack);
-    }
-    process.exit(1);
-});
-
-main.run(function ()
+    let https = require("https");
+    https.globalAgent.maxSockets = 16384;
+    https.globalAgent.options.agent = false;
+}
+else
 {
-    let cluster = require("cluster");
-    let cpus = require("os").cpus().length;
-    let path = require("path");
-    let app = require("express")();
-
-    let pkg = require(path.join(__dirname, "package.json"));
-    let config = require(path.join(__dirname, "config", "start.json"));
-    let debug = require("debug")(pkg.name);
-
-    process.title = pkg.name;
-    parseArgs(config);
-    if(config.http.secure)
-    {
-        let https = require("https");
-        https.globalAgent.maxSockets = 16384;
-        https.globalAgent.options.agent = false;
-    }
-    else
-    {
-        let http = require("http");
-        http.globalAgent.maxSockets = 16384;
-        http.globalAgent.options.agent = false;
-    }
-
-    if (cluster.isMaster)
-    {
-        let client = new cassandra.Client(config["database"]);
-        client.connect(function (error)
-        {
-            if(error)
-            {
-                throw error;
-            }
-            else
-            {
-                for (let i = 0; i < cpus; ++i)
-                {
-                    cluster.fork();
-                }
-            }
-        });
-    }
-    else
-    {
-        launcher(app, cluster.worker, pkg, config);
-    }
-
-    cluster.on("fork", function(worker)
-    {
-    });
-
-    cluster.on("disconnect", function()
-    {
-    });
-
-    cluster.on("exit", function(worker, code, signal)
-    {
-        console.error("Worker with id: " + worker.id + " died.");
-        console.error("Code: " + code);
-        console.error("Signal: " + signal);
-        // restart may be possible
-        // cluster.fork();
-    });
-});
-
-function launcher(app, worker, pkg, config)
-{
-    let d = domain.create();
-    worker.process.title = pkg.name + ":" + worker.id;
-
-    d.on("error", function (error)
-    {
-        let id = "[main:" + worker.id + "] ";
-        console.error(id + error.message);
-        console.error(id + "\n" + error.stack);
-        worker.process.exit(worker.id);
-    });
-    d.run(function ()
-    {
-        require("./lib/configure")(app, worker, pkg, config, __dirname);
-        require("./lib/start")(app, worker, config, __dirname);
-    });
+    let http = require("http");
+    http.globalAgent.maxSockets = 16384;
+    http.globalAgent.options.agent = false;
 }
 
-function parseArgs(config)
+if (cluster.isMaster)
 {
-    let _ = require("underscore");
-    let nopt = require("nopt");
-    let opts = {
-        "-db:hosts": [ nopt.typeDefs.String, Array, null ],
-        "-db:port": [ nopt.typeDefs.Number, null ],
-        "-db:ks": [ nopt.typeDefs.String, null ]
-    };
-    let args = nopt(opts);
-    if(_.has(args, "db:hosts"))
+    let client = new cassandra.Client(config["database"]);
+    client.connect(function (error)
     {
-        config["database"]["contactPoints"].length = 0;
-        if(_.isArray(args["db:hosts"]))
+        if(error)
         {
-            _.each(args["db:hosts"], function (host)
-            {
-                config["database"]["contactPoints"].push(host);
-            })
+            throw error;
         }
         else
         {
-            config["database"]["contactPoints"].push(args["db:hosts"]);
+            for (let i = 0; i < cpus; ++i)
+            {
+                cluster.fork();
+            }
         }
-    }
-    if(_.has(args, "db:port"))
-    {
-        config["database"]["protocolOptions"]["port"] = args["db:port"];
-    }
-    if(_.has(args, "db:ks"))
-    {
-        config["database"]["keyspace"] = args["db:ks"];
-    }
+    });
 }
+else
+{
+    Utils.launcher(cluster.worker, pkg, config);
+}
+
+cluster.on("fork", function(worker)
+{
+});
+
+cluster.on("disconnect", function()
+{
+});
+
+cluster.on("error", function(error)
+{
+    debug(error);
+});
+
+cluster.on("exit", function(worker, code, signal)
+{
+    debug("Worker with id: " + worker.id + " died.");
+    debug("Code: " + code);
+    debug("Signal: " + signal);
+    // restart may be possible
+    // cluster.fork();
+});
+
+process.on("uncaughtException", function (error)
+{
+    if(error instanceof cassandra.errors.NoHostAvailableError)
+    {
+        debug(JSON.stringify(error.innerErrors, null, 0));
+    }
+    else
+    {
+        debug(error.message);
+        debug(error.stack);
+    }
+    process.exit(1);
+});

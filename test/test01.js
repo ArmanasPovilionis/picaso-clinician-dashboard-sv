@@ -2,12 +2,9 @@
 
 describe("express4-skeleton", function ()
 {
-    let assert = require("assert");
-    describe("TO-DO", function ()
+    const assert = require("assert");
+    it("TO-DO", function ()
     {
-        it("TO-DO", function ()
-        {
-            assert(true);
-        });
+        assert(true);
     });
 });
