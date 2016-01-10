@@ -29,9 +29,6 @@ address {
 }
 
 @media (max-width: 34em) {
-    .navbar-nav .nav-item {
-        float: right;
-    }
     .nav-item {
         width: 100%;
         text-align: center;
