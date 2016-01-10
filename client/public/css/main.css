@@ -1,9 +1,39 @@
 /* ===== import bootstrap ===== */
-@import url("../bootstrap/css/bootstrap.min.css");
+@import url("https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.min.css");
 
-/* ===== Google font API: select as appropriate ===== */
-@import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic&subset=latin,latin-ext");
-@import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic&subset=latin,latin-ext");
+/* ===== Fonts ===== */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700italic,700,800,800italic&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,200,300,500,600,700,900&subset=latin,latin-ext);
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
 
-/* ===== import theme ===== */
-@import url("theme.css");
+/* ===== custom styles ===== */
+body {
+    padding-top: 70px; /* fixed header */
+    font-family: "Open Sans", arial, sans-serif;
+}
+
+main {
+    min-height: 30rem;
+}
+
+address {
+    text-align: center;
+    font-style: italic;
+}
+
+@media all {
+    .nav-item {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+
+@media (max-width: 34em) {
+    .navbar-nav .nav-item {
+        float: right;
+    }
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+}
