@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title><%= settings.pkg.name %> :: <%= header %></title>
+    <title><%= pkg.name %> :: <%= header %></title>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="/images/favicon.ico" type="image/x-icon" rel="shortcut icon">
 	<link href="/css/main.css" type="text/css" rel="stylesheet">
 </head>
@@ -12,7 +12,8 @@
     <% var menu = [
         { name : "index", title : "Home", glyphicon: "fa-home" },
         { name : "system", title : "System", glyphicon: "fa-signal" },
-        { name : "license", title : "License", glyphicon: "fa-file-text" } ];
+        { name : "license", title : "License", glyphicon: "fa-file-text" },
+        { name : "error", title : "Error", glyphicon: "fa-exclamation" } ];
     %>
     <nav class="navbar navbar-full navbar-fixed-top navbar-dark bg-primary">
         <div class="hidden-sm-up">

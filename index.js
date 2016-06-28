@@ -7,11 +7,12 @@ const path = require("path");
 const Utils = require("./lib/Utils");
 const config = require(path.join(__dirname, "config", "start.json"));
 const pkg = require(path.join(__dirname, "package.json"));
-const debug = require("debug")(pkg.name);
+const debug = require("util").debuglog(pkg.name);
 
 process.title = pkg.name;
 config.basedir = __dirname;
 Utils.argsParser(config);
+config["database"]["client"] = new cassandra.Client(config["database"]["clientOptions"]);
 if(config.http.secure)
 {
     let https = require("https");
@@ -27,8 +28,7 @@ else
 
 if (cluster.isMaster)
 {
-    let client = new cassandra.Client(config["database"]);
-    client.connect(function (error)
+    config["database"]["client"].connect(function (error)
     {
         if(error)
         {

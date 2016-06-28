@@ -7,23 +7,28 @@
         "cert": "localhost.cert"
     },
     "database": {
-        "contactPoints": ["localhost"],
-        "keyspace": "sessions",
-        "protocolOptions": {
-            "port": 9042
-        },
-        "socketOptions": {
-            "connectTimeout": 2000
-        },
-        "queryOptions": {
-            "fetchSize": 10000,
-            "autoPage": true,
-            "prepare": true,
-            "ttl": 86400
-        },
-        "authProvider": {
-            "username": "",
-            "password": ""
+        "table": "sessions",
+        "clientOptions": {
+            "contactPoints": [
+                "localhost"
+            ],
+            "keyspace": "tests",
+            "protocolOptions": {
+                "port": 9042
+            },
+            "socketOptions": {
+                "connectTimeout": 2000
+            },
+            "queryOptions": {
+                "fetchSize": 10000,
+                "autoPage": true,
+                "prepare": true,
+                "ttl": 86400
+            },
+            "authProvider": {
+                "username": "",
+                "password": ""
+            }
         }
     }
 }
