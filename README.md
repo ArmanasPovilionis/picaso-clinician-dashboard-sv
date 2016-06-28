@@ -43,5 +43,5 @@ $ node -db:hosts=cass.example.org -db:ks=tests index.js
 [cassandra-store]: https://github.com/webcc/cassandra-store
 [express]: http://expressjs.com/
 [node-version]: https://img.shields.io/badge/node-6.0.0-orange.svg?style=flat-square
-[npm-image]: https://img.shields.io/badge/npm-0.1.1-blue.svg?style=flat-square
+[npm-image]: https://img.shields.io/badge/npm-0.1.2-blue.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/express4-skeleton
