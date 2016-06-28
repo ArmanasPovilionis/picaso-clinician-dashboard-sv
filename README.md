@@ -18,12 +18,20 @@ by the framework. Additionally, it is integrated with a barebones version of
   availability at startup
 - Handling of HTTP 404 errors
 
+## Installation
+
+Execute:
+
+```shell
+npm install express4-skeleton
+```
+
 ## Start-up
 
 Execute:
 
-```
-$ node index.js
+```shell
+$ node -db:hosts=cass.example.org -db:ks=tests index.js
 ```
 
 ## TO-DOs
@@ -35,5 +43,5 @@ $ node index.js
 [cassandra-store]: https://github.com/webcc/cassandra-store
 [express]: http://expressjs.com/
 [node-version]: https://img.shields.io/badge/node-6.0.0-orange.svg?style=flat-square
-[npm-image]: https://img.shields.io/badge/npm-0.1.0-blue.svg?style=flat-square
+[npm-image]: https://img.shields.io/badge/npm-0.1.1-blue.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/express4-skeleton
