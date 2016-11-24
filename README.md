@@ -29,7 +29,7 @@ npm install express4-skeleton
 Execute:
 
 ```shell
-$ node index.js
+node index.js
 ```
 
 ## TO-DOs
