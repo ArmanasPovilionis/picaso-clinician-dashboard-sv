@@ -1,18 +1,14 @@
 "use strict";
 
-const cassandra = require("cassandra-driver");
 const cluster = require("cluster");
 const cpus = require("os").cpus().length;
 const path = require("path");
-const Utils = require("./lib/Utils");
 const config = require(path.join(__dirname, "config", "start.json"));
 const pkg = require(path.join(__dirname, "package.json"));
 const debug = require("util").debuglog(pkg.name);
 
 process.title = pkg.name;
 config.basedir = __dirname;
-Utils.argsParser(config);
-config["database"]["client"] = new cassandra.Client(config["database"]["clientOptions"]);
 if(config.http.secure)
 {
     let https = require("https");
@@ -28,24 +24,14 @@ else
 
 if (cluster.isMaster)
 {
-    config["database"]["client"].connect(function (error)
+    for (let i = 0; i < cpus; ++i)
     {
-        if(error)
-        {
-            throw error;
-        }
-        else
-        {
-            for (let i = 0; i < cpus; ++i)
-            {
-                cluster.fork();
-            }
-        }
-    });
+        cluster.fork();
+    }
 }
 else
 {
-    Utils.launcher(cluster.worker, pkg, config);
+    launcher(cluster.worker, pkg, config);
 }
 
 cluster.on("fork", function(worker)
@@ -72,14 +58,14 @@ cluster.on("exit", function(worker, code, signal)
 
 process.on("uncaughtException", function (error)
 {
-    if(error instanceof cassandra.errors.NoHostAvailableError)
-    {
-        debug(JSON.stringify(error.innerErrors, null, 0));
-    }
-    else
-    {
-        debug(error.message);
-        debug(error.stack);
-    }
+    debug(error.message);
+    debug(error.stack);
     process.exit(1);
 });
+
+function launcher(worker, pkg, config)
+{
+    const app = new (require("./lib/DefaultApp"))(worker, pkg, config);
+    worker.process.title = `${pkg.name}:${worker.id}`;
+    app.start();
+};

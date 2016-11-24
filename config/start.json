@@ -5,30 +5,5 @@
         "secure": true,
         "key": "localhost.key",
         "cert": "localhost.cert"
-    },
-    "database": {
-        "table": "sessions",
-        "clientOptions": {
-            "contactPoints": [
-                "localhost"
-            ],
-            "keyspace": "tests",
-            "protocolOptions": {
-                "port": 9042
-            },
-            "socketOptions": {
-                "connectTimeout": 2000
-            },
-            "queryOptions": {
-                "fetchSize": 10000,
-                "autoPage": true,
-                "prepare": true,
-                "ttl": 86400
-            },
-            "authProvider": {
-                "username": "",
-                "password": ""
-            }
-        }
     }
 }

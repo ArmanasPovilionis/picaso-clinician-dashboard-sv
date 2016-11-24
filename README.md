@@ -31,7 +31,7 @@ npm install express4-skeleton
 Execute:
 
 ```shell
-$ node -db:hosts=cass.example.org -db:ks=tests index.js
+$ node index.js
 ```
 
 ## TO-DOs
