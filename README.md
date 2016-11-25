@@ -27,7 +27,7 @@ npm install express4-skeleton
 ### Install dependencies
 
 ```shell
-npm install express4-skeleton
+npm install
 ```
 
 ## Start-up
