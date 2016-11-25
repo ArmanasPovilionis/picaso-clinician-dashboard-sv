@@ -24,12 +24,18 @@ Execute:
 npm install express4-skeleton
 ```
 
+### Install dependencies
+
+```shell
+npm install express4-skeleton
+```
+
 ## Start-up
 
 Execute:
 
 ```shell
-node index.js
+npm start
 ```
 
 ## TO-DOs
