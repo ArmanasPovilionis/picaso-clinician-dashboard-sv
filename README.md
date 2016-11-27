@@ -1,7 +1,6 @@
 express4-skeleton
 =================
 
-[![NPM Version][npm-image]][npm-url]
 ![Node][node-version]
 
 This is just an example [Express.js 4.x][express] web
@@ -18,25 +17,19 @@ by the framework. Additionally, it is integrated with a barebones version of
 
 ## Installation
 
-Execute:
-
-```shell
-npm install express4-skeleton
-```
-
-### Install dependencies
-
-```shell
-npm install
-```
-
-## Start-up
-
-Execute:
-
-```shell
-npm start
-```
++ Execute:
+  ```shell
+  git clone https://github.com/webcc/express4-skeleton.git
+  ```
++ Install dependencies
+  ```shell
+  cd express4-skeleton
+  npm install
+  ```
++ Start-up:
+  ```shell
+  npm start
+  ```
 
 ## TO-DOs
 
@@ -46,5 +39,3 @@ npm start
 [bootstrap]: https://getbootstrap.com/
 [express]: http://expressjs.com/
 [node-version]: https://img.shields.io/badge/node-6.9.1-orange.svg?style=flat-square
-[npm-image]: https://img.shields.io/badge/npm-3.10.8-blue.svg?style=flat-square
-[npm-url]: https://www.npmjs.com/package/express4-skeleton
