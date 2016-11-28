@@ -18,15 +18,20 @@ by the framework. Additionally, it is integrated with a barebones version of
 ## Installation
 
 + Execute:
+
   ```shell
   git clone https://github.com/webcc/express4-skeleton.git
   ```
+  
 + Install dependencies
+
   ```shell
   cd express4-skeleton
   npm install
   ```
+  
 + Start-up:
+
   ```shell
   npm start
   ```
