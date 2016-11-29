@@ -17,24 +17,26 @@ by the framework. Additionally, it is integrated with a barebones version of
 
 ## Installation
 
-+ Execute:
+- Execute:
 
   ```shell
   git clone https://github.com/webcc/express4-skeleton.git
   ```
   
-+ Install dependencies
+- Install dependencies
 
   ```shell
   cd express4-skeleton
   npm install
   ```
   
-+ Start-up:
+- Start-up:
 
   ```shell
   npm start
   ```
+  
+- Open a web browser with the URL: https://localhost:8080/ (self-signed certificate)
 
 ## TO-DOs
 
