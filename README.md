@@ -36,7 +36,7 @@ by the framework. Additionally, it is integrated with a barebones version of
   npm start
   ```
   
-- Open a web browser with the URL: https://localhost:8080/ (self-signed certificate)
+- Open a web browser with the URL: [https://localhost:8080/](https://localhost:8080/) (self-signed certificate)
 
 ## TO-DOs
 
