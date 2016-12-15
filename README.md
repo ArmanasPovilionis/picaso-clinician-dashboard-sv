@@ -38,6 +38,10 @@ by the framework. Additionally, it is integrated with a barebones version of
   
 - Open a web browser with the URL: [https://localhost:8080/](https://localhost:8080/) (self-signed certificate)
 
+## Testing
+
+Unit tests implemented with the [Mocha testing framework][mocha] with the help of the [request][request] module.
+
 ## TO-DOs
 
 - Check port availability
@@ -45,4 +49,6 @@ by the framework. Additionally, it is integrated with a barebones version of
 
 [bootstrap]: https://getbootstrap.com/
 [express]: http://expressjs.com/
+[mocha]: https://mochajs.org/
 [node-version]: https://img.shields.io/badge/node-6.9.1-orange.svg?style=flat-square
+[request]: https://github.com/request/request
