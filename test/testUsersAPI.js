@@ -37,8 +37,8 @@ describe("express4-skeleton", () =>
                 assert.strictEqual(response.statusCode, 201);
                 assert.strictEqual(response.statusMessage, "Created");
                 user = body;
-                done();
             }
+            done();
         });
     });
     it("GET a valid user", (done) =>
@@ -59,31 +59,8 @@ describe("express4-skeleton", () =>
                 assert(Object.keys(body).length);
                 assert.strictEqual(response.statusCode, 200);
                 assert.strictEqual(response.statusMessage, "OK");
-                done();
             }
-        });
-    });
-    it("GET an invalid user (404)", (done) =>
-    {
-        options.uri = `${apiURL}/${uuid.v1()}`;
-        options.method = "GET";
-        options.body = undefined;
-        request(options, (error, response, body) =>
-        {
-            if (error)
-            {
-                console.error(error.message);
-            }
-            else
-            {
-                assert.strictEqual(error, null);
-                assert.strictEqual(typeof body, "object");
-                assert(Object.keys(body).length);
-                assert(body.hasOwnProperty("error"));
-                assert.strictEqual(response.statusCode, 404);
-                assert.strictEqual(response.statusMessage, "Not Found");
-                done();
-            }
+            done();
         });
     });
     it("Update (PUT) a valid user", (done) =>
@@ -105,8 +82,8 @@ describe("express4-skeleton", () =>
                 assert.strictEqual(typeof body, "undefined");
                 assert.strictEqual(response.statusCode, 204);
                 assert.strictEqual(response.statusMessage, "No Content");
-                done();
             }
+            done();
         });
     });
     it("Verify (GET) a modified user", (done) =>
@@ -128,8 +105,54 @@ describe("express4-skeleton", () =>
                 assert(Object.keys(body).length);
                 assert.strictEqual(response.statusCode, 200);
                 assert.strictEqual(response.statusMessage, "OK");
-                done();
             }
+            done();
+        });
+    });
+    it("GET an invalid user (404)", (done) =>
+    {
+        options.uri = `${apiURL}/${uuid.v1()}`;
+        options.method = "GET";
+        options.body = undefined;
+        request(options, (error, response, body) =>
+        {
+            if (error)
+            {
+                console.error(error.message);
+            }
+            else
+            {
+                assert.strictEqual(error, null);
+                assert.strictEqual(typeof body, "object");
+                assert(Object.keys(body).length);
+                assert(body.hasOwnProperty("error"));
+                assert.strictEqual(response.statusCode, 404);
+                assert.strictEqual(response.statusMessage, "Not Found");
+            }
+            done();
+        });
+    });
+    it("PUT an invalid user (404)", (done) =>
+    {
+        options.uri = `${apiURL}/${uuid.v1()}`;
+        options.method = "PUT";
+        options.body = undefined;
+        request(options, (error, response, body) =>
+        {
+            if (error)
+            {
+                console.error(error.message);
+            }
+            else
+            {
+                assert.strictEqual(error, null);
+                assert.strictEqual(typeof body, "object");
+                assert(Object.keys(body).length);
+                assert(body.hasOwnProperty("error"));
+                assert.strictEqual(response.statusCode, 404);
+                assert.strictEqual(response.statusMessage, "Not Found");
+            }
+            done();
         });
     });
     it("DELETE a valid user", (done) =>
@@ -149,8 +172,8 @@ describe("express4-skeleton", () =>
                 assert.strictEqual(typeof body, "undefined");
                 assert.strictEqual(response.statusCode, 204);
                 assert.strictEqual(response.statusMessage, "No Content");
-                done();
             }
+            done();
         });
     });
 });
