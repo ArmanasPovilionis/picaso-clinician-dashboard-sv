@@ -1,0 +1,58 @@
+{
+  "HS": {
+    "Display": "HS",
+    "Description": "Description: Prior to beginning a regular period of extended sleep (this would exclude naps). Note that this might occur at different times of day depending on a person's regular sleep schedule."
+  },
+  "WAKE": {
+    "Display": "WAKE",
+    "Description": "Description: Upon waking up from a regular period of sleep, in order to start regular activities (this would exclude waking up from a nap or temporarily waking up during a period of sleep)"
+  },
+  "C": {
+    "Display": "C",
+    "Description": "Description: meal (from lat. ante cibus)"
+  },
+  "CM": {
+    "Display": "CM",
+    "Description": "Description: breakfast (from lat. cibus matutinus)"
+  },
+  "CD": {
+    "Display": "CD",
+    "Description": "Description: lunch (from lat. cibus diurnus)"
+  },
+  "CV": {
+    "Display": "CV",
+    "Description": "Description: dinner (from lat. cibus vespertinus)"
+  },
+  "AC": {
+    "Display": "AC",
+    "Description": "before meal (from lat. ante cibus)"
+  },
+  "ACM": {
+    "Display": "ACM",
+    "Description": "before breakfast (from lat. ante cibus matutinus)"
+  },
+  "ACD": {
+    "Display": "ACD",
+    "Description": "before lunch (from lat. ante cibus diurnus)"
+  },
+  "ACV": {
+    "Display": "ACV",
+    "Description": "before dinner (from lat. ante cibus vespertinus)"
+  },
+  "PC": {
+    "Display": "PC",
+    "Description": "after meal (from lat. post cibus)"
+  },
+  "PCM": {
+    "Display": "PCM",
+    "Description": "after breakfast (from lat. post cibus matutinus)"
+  },
+  "PCD": {
+    "Display": "PCD",
+    "Description": "after lunch (from lat. post cibus diurnus)"
+  },
+  "PCV": {
+    "Display": "PCV",
+    "Description": "after dinner (from lat. post cibus vespertinus)"
+  }
+}
