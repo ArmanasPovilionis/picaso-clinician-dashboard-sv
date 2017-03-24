@@ -1,0 +1,58 @@
+{
+  "resourceType": "Any",
+  "extension": [
+    {
+      "url": "http://www.picaso-project.eu/fhir/notification",
+      "extension": [
+        {
+          "url": "NotificationCondition", // if not there, based only on timing
+          "extension": [
+            {
+              "url": "systolicRange",
+              "valueRange": {
+                "low": {
+                  "value": 50,
+                  "unit": "mmHg"
+                },
+                "high": {
+                  "value": 90,
+                  "unit": "mmHg"
+                }
+              }
+            },
+            {
+              "url": "diastolicRange",
+              "valueRange": {
+                "low": {
+                  "value": 50,
+                  "unit": "mmHg"
+                },
+                "high": {
+                  "value": 90,
+                  "unit": "mmHg"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "url": "NotificationType",
+          "valueString": "flag" //flag, alert, email
+        },
+        {
+          "url": "NotificationTiming",
+          "valueTiming": {
+          }
+        },
+        {
+          "url": "NotificationMessage",
+          "valueString": "msg"
+        },
+        {
+          "url": "NotificationEmail",  // if email
+          "valueString": "mail"
+        }
+      ]
+    }
+  ]
+}

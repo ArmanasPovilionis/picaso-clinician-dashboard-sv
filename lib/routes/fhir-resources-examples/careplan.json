@@ -1,0 +1,208 @@
+{
+  "resourceType": "CarePlan",
+  "id": "f201",
+  "language": "en",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>No details</b></p></div>"
+  },
+  "subject": {
+    "reference": "Patient/f201",
+    "display": "Neil Picaso"
+  },
+  "status": "draft",
+  "period": {
+    "start": "2016-10-12",
+    "end": "2016-11-24"
+  },
+  "modified": "2016-10-12",
+  "addresses": [
+    {
+      "reference": "Condition/f204",
+      "display": "Home monitoring plan of BP and activity"
+    }
+  ],
+  "participant": [
+    {
+      "role": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "425268008",
+            "display": "Review of care plan"
+          }
+        ]
+      },
+      "member": {
+        "reference": "Practitioner/f201",
+        "display": "Dr Medicus"
+      }
+    },
+    {
+      "role": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "229774002",
+            "display": "Carer"
+          }
+        ]
+      },
+      "member": {
+        "reference": "Practitioner/f204",
+        "display": "Nurse Diesel"
+      }
+    }
+  ],
+  "goal": [
+    {
+      "reference": "#goal"
+    }
+  ],
+  "activity": [
+    {
+      "reference": {
+        "reference": "#DeviceUseRequest/1",
+        "display": "Take Bloodpressure"
+      }
+    }
+  ],
+  "contained": [
+    {
+      "resourceType": "Goal",
+      "id": "#goal",
+      "subject": {
+        "reference": "Patient/f201",
+        "display": "Neil Picaso"
+      },
+      "description": "Lower Bloodpressure",
+      "status": "planned"
+    },
+    {
+      "resourceType": "DeviceUseRequest",
+      "id": "#DeviceUseRequest/1",
+      "text": {
+        "status": "generated",
+        "div": "<div>Use BPM at home</div>"
+      },
+      "device": {
+        "reference": "#Device/BPM0123"
+      },
+      "subject": {
+        "reference": "Patient/f201"
+      },
+      "timingTiming": {
+        "repeat": {
+          "period": 30,
+          "periodUnits": "min",
+          "when": "PCV"
+        }
+      },
+      "extension": [
+        {
+          "url": "http://www.picaso-project.eu/fhir/service/name",
+          "valueString": "BMP Service"
+        },
+        {
+          "url": "http://www.picaso-project.eu/fhir/service/adherenceMeans",
+          "valueString": "AlertUserConfirmation"
+        },
+        {
+          "url": "http://www.picaso-project.eu/fhir/service/systolicRange",
+          "valueRange": {
+            "low": {
+              "value" : 100,
+              "unit" : "mmHg"
+            },
+            "high" : {
+              "value" : 130,
+              "unit" : "mmHg"
+            }
+          }
+        },
+        {
+          "url": "http://www.picaso-project.eu/fhir/service/diastolicRange",
+          "valueRange": {
+            "low": {
+              "value" : 50,
+              "unit" : "mmHg"
+            },
+            "high" : {
+              "value" : 90,
+              "unit" : "mmHg"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Device",
+      "id": "#Device/BPM0123",
+      "text": {
+        "status": "generated",
+        "div": "<div>No Text</div>"
+      },
+      "identifier": [
+        {
+          "system": "http://picaso.eu/devices/id",
+          "value": "BPM0123"
+        },
+        {
+          "type": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/identifier-type",
+                "code": "SNO"
+              }
+            ],
+            "text": "Serial Number"
+          },
+          "value": "5120700152"
+        }
+      ],
+      "type": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "258057004",
+            "display": "Non-invasive blood pressure monitor"
+          }
+        ],
+        "text": "BPM"
+      },
+      "status": "available",
+      "manufacturer": "A&D Medical",
+      "model": "UA-767NFC",
+      "lotNumber": "4c0bbe105be8",
+      "contact": [
+        {
+          "system": "phone",
+          "value": "+4685819917"
+        }
+      ]
+    },
+    {
+      "resourceType": "ProcedureRequest",
+      "id": "example for adherence",
+      "text": {
+        "status": "generated",
+        "div": "<div>To be added</div>"
+      },
+      "subject": {
+        "fhir_comments": [
+          "  insert contents here  "
+        ],
+        "reference": "Patient/example"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "323418000",
+            "display": "Fix me up"
+          }
+        ]
+      }
+    }
+  ]
+}

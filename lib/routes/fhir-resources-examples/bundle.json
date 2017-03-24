@@ -1,0 +1,122 @@
+{
+  "resourceType": "Bundle",
+  "id": "default-resources",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "Patient",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "1",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Some narrative</div>"
+        },
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Chalmers",
+            "given": [
+              "Peter",
+              "James"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1974-12-25"
+      }
+    },
+    {
+      "fullUrl": "DeviceRequest",
+      "resource": {
+        "resourceType": "DeviceRequest",
+        "id": "2",
+        "text": {
+          "status": "generated",
+          "div": "<div>Use activity meter at home</div>"
+        },
+        "status": "completed",
+        "codeReference": {
+          "reference": "Device/example"
+        },
+        "device": {
+          "reference": "#Device/BPM0123"
+        },
+        "subject": {
+          "reference": "Patient/f201"
+        },
+        "occurrenceTiming": {
+          "repeat": {
+            "frequency": 1,
+            "period": 4,
+            "periodUnits": "h",
+            "periodMax": 6
+          }
+        },
+        "extension": [
+          {
+            "url": "http://www.picaso-project.eu/fhir/service",
+            "extension": [
+              {
+                "url": "name",
+                "valueString": "Blood Pressure Measurement"
+              }
+            ]
+          },
+          {
+            "url": "http://www.picaso-project.eu/fhir/notification",
+            "extension": [
+              {
+                "url": "NotificationCondition",
+                "extension": [
+                  {
+                    "url": "systolicRange",
+                    "valueRange": {
+                      "low": {
+                        "value": 50,
+                        "unit": "mmHg"
+                      },
+                      "high": {
+                        "value": 90,
+                        "unit": "mmHg"
+                      }
+                    }
+                  },
+                  {
+                    "url": "diastolicRange",
+                    "valueRange": {
+                      "low": {
+                        "value": 50,
+                        "unit": "mmHg"
+                      },
+                      "high": {
+                        "value": 90,
+                        "unit": "mmHg"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "url": "NotificationType",
+                "valueString": "flag"
+              },
+              {
+                "url": "NotificationTiming",
+                "valueTiming": {
+
+                }
+              },
+              {
+                "url": "NotificationMessage",
+                "valueString": "msg"
+              }
+            ]
+          }
+        ]
+      }
+    }
+
+  ]
+}

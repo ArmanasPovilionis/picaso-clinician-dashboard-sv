@@ -1,0 +1,536 @@
+﻿{
+  "resourceType": "CarePlan",
+  "id": "f201",
+  "author": [
+    {
+      "reference": "Practitioner/f201"
+    }
+  ],
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>No details</b></p></div>"
+  },
+  "subject": {
+    "reference": "Patient/1"
+  },
+  "status": "draft",
+  "period": {
+    "start": "2016-10-12",
+    "end": "2016-11-24"
+  },
+  "addresses": [
+    {
+      "reference": "Condition/f201",
+    }
+  ],
+  "careTeam": [
+    {
+      "reference": "#careteam"
+    }
+  ],
+  "goal": [
+    {
+      "reference": "#goal"
+    }
+  ],
+  "note": [
+    {
+      "text": "",
+      "author": {
+        "reference": ""
+      }
+    }
+  ],
+  "activity": [
+    {
+      "reference": "#DeviceRequest/blood",
+      "display": "Take Blood pressure"
+    },
+    {
+      "reference": "#DeviceRequest/exercise",
+      "display": "Walk 5000 steps per day"
+    },
+    {
+      "reference": "#Appointment/1",
+      "display": "Blood Pressure Monitoring results discussion"
+    },
+    {
+      "reference": "#01RA07",
+      "display": "Answer Questionnaire"
+    },
+    {
+      "reference": "#MoriskyScaleUDUS",
+      "display": "Answer Questionnaire"
+    },
+    {
+      "reference": "#FFbH_UDUS",
+      "display": "Answer Questionnaire"
+    }
+  ],
+  "contained": [
+    {
+      "resourceType": "DeviceRequest",
+      "id": "#DeviceRequest/blood",
+      "text": {
+        "status": "generated",
+        "div": "<div>Use BPM at home</div>"
+      },
+      "device": {
+        "reference": "#Device/BPM0123"
+      },
+      "subject": {
+        "reference": "Patient/1"
+      },
+      "timingTiming": {
+        "repeat": {
+          "frequency": 1,
+          "period": 4,
+          "periodUnits": "h",
+          "periodMax": 6
+        }
+      },
+      "extension": [
+        {
+          "url": "http://www.picaso-project.eu/fhir/notification",
+          "extension": [
+            {
+              "url": "NotificationCondition",
+              "extension": [
+                {
+                  "url": "systolicRange",
+                  "valueRange": {
+                    "low": {
+                      "value": 50,
+                      "unit": "mmHg"
+                    },
+                    "high": {
+                      "value": 90,
+                      "unit": "mmHg"
+                    }
+                  }
+                },
+                {
+                  "url": "diastolicRange",
+                  "valueRange": {
+                    "low": {
+                      "value": 50,
+                      "unit": "mmHg"
+                    },
+                    "high": {
+                      "value": 90,
+                      "unit": "mmHg"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "url": "NotificationType",
+              "valueString": "flag"
+            },
+            {
+              "url": "NotificationTiming",
+              "valueTiming": {
+                "repeat": {
+                  "frequency": 1,
+                  "period": 4,
+                  "periodUnits": "h",
+                  "periodMax": 6
+                }
+              }
+            },
+            {
+              "url": "NotificationMessage",
+              "valueString": "msg"
+            }
+          ]
+        },
+        {
+          "url": "http://www.picaso-project.eu/fhir/notification",
+          "extension": [
+            {
+              "url": "NotificationCondition",
+              "extension": [
+                {
+                  "url": "noMeasurementDays",
+                  "valueInteger": 3
+                }
+              ]
+            },
+            {
+              "url": "NotificationType",
+              "valueString": "email"
+            },
+            {
+              "url": "NotificationMessage",
+              "valueString": "msg"
+            },
+            {
+              "url": "NotificationEmail",
+              "valueString": "mail@fgfdg.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resourceType": "DeviceRequest",
+      "id": "#DeviceRequest/walk",
+      "text": {
+        "status": "generated",
+        "div": "<div>Use activity meter at home</div>"
+      },
+      "device": {
+        "reference": "#Device/AM0123"
+      },
+      "subject": {
+        "reference": "Patient/1"
+      },
+      "timingTiming": {
+        "repeat": {
+          "frequency": 1,
+          "period": 4,
+          "periodUnits": "h",
+          "periodMax": 6
+        }
+      },
+      "extension": [
+        {
+          "url": "http://www.picaso-project.eu/fhir/notification",
+          "extension": [
+            {
+              "url": "NotificationCondition",
+              "extension": [
+                {
+                  "url": "systolicRange",
+                  "valueRange": {
+                    "low": {
+                      "value": 50,
+                      "unit": "mmHg"
+                    },
+                    "high": {
+                      "value": 90,
+                      "unit": "mmHg"
+                    }
+                  }
+                },
+                {
+                  "url": "diastolicRange",
+                  "valueRange": {
+                    "low": {
+                      "value": 50,
+                      "unit": "mmHg"
+                    },
+                    "high": {
+                      "value": 90,
+                      "unit": "mmHg"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "url": "NotificationType",
+              "valueString": "flag"
+            },
+            {
+              "url": "NotificationTiming",
+              "valueTiming": {
+                "repeat": {
+                  "frequency": 1,
+                  "period": 4,
+                  "periodUnits": "h",
+                  "periodMax": 6
+                }
+              }
+            },
+            {
+              "url": "NotificationMessage",
+              "valueString": "msg"
+            }
+          ]
+        },
+        {
+          "url": "http://www.picaso-project.eu/fhir/notification",
+          "extension": [
+            {
+              "url": "NotificationCondition",
+              "extension": [
+                {
+                  "url": "noMeasurementDays",
+                  "valueInteger": 3
+                }
+              ]
+            },
+            {
+              "url": "NotificationType",
+              "valueString": "email"
+            },
+            {
+              "url": "NotificationMessage",
+              "valueString": "msg"
+            },
+            {
+              "url": "NotificationEmail",
+              "valueString": "mail"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resourceType": "Appointment",
+      "id": "#Appointment/1",
+      "text": {
+        "status": "generated",
+        "div": "<div>Blood Pressure Monitoring results discussion</div>"
+      },
+      "status": "booked",
+      "type": {
+        "coding": [
+          {
+            "code": "52",
+            "display": "General Discussion"
+          }
+        ]
+      },
+      "priority": 5,
+      "description": "Discussion on the results of your Blood Pressure Monitoring",
+      "start": "2016-12-10T09:00:00Z",
+      "end": "2016-12-10T11:00:00Z",
+      "comment": "Further expand on the results of the Blood Pressure Monitoring and determine the next actions that may be appropriate.",
+      "participant": [
+        {
+          "actor": {
+            "reference": "Patient/1",
+            "display": "Neil Picaso"
+          },
+          "required": "required",
+          "status": "accepted"
+        },
+        {
+          "type": [
+            {
+              "coding": [
+                {
+                  "code": "attending"
+                }
+              ]
+            }
+          ],
+          "actor": {
+            "reference": "Practitioner/f201",
+            "display": "Dr Medicus"
+          },
+          "required": "required",
+          "status": "accepted"
+        },
+        {
+          "actor": {
+            "reference": "Location/1",
+            "display": "Schloss Birlinghoven, Konrad-Adenauer-Straße, 53754 Sankt Augustin"
+          },
+          "required": "required",
+          "status": "accepted"
+        }
+      ]
+    },
+    {
+      "resourceType": "Device",
+      "id": "#Device/BPM0123",
+      "text": {
+        "fhir_comments": [
+          "  text>\n    <status value=\"generated\"/>\n    <div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>BPM Monitor</p>\n    </div>\n  </text  "
+        ],
+        "status": "generated",
+        "div": "<div>No Text</div>"
+      },
+      "identifier": [
+        {
+          "system": "http://picaso.eu/devices/id",
+          "value": "BPM0123"
+        },
+        {
+          "type": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/identifier-type",
+                "code": "SNO"
+              }
+            ],
+            "text": "Serial Number"
+          },
+          "value": "5120700152"
+        }
+      ],
+      "type": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "258057004",
+            "display": "Non-invasive blood pressure monitor"
+          }
+        ],
+        "text": "BPM"
+      },
+      "status": "available",
+      "manufacturer": "A&D Medical",
+      "model": "UA-767NFC",
+      "lotNumber": "4c0bbe105be8",
+      "contact": [
+        {
+          "system": "phone",
+          "value": "+4685819917"
+        }
+      ]
+    },
+    {
+      "resourceType": "Device",
+      "id": "#Device/AM0123",
+      "text": {
+        "fhir_comments": [
+          "  text>\n    <status value=\"generated\"/>\n    <div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>Activity Monitor</p>\n    </div>\n  </text  "
+        ],
+        "status": "generated",
+        "div": "<div>No Text</div>"
+      },
+      "identifier": [
+        {
+          "system": "http://picaso.eu/devices/id",
+          "value": "AM0123"
+        },
+        {
+          "type": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/identifier-type",
+                "code": "SNO"
+              }
+            ],
+            "text": "Serial Number"
+          },
+          "value": "627262628"
+        }
+      ],
+      "type": {
+        "coding": [
+          {
+            "system": "http://picaso.eu/device",
+            "code": "10110",
+            "display": "Activity Monitor"
+          }
+        ],
+        "text": "Activity Monitor"
+      },
+      "status": "available",
+      "manufacturer": "Apple",
+      "model": "Apple Watch V2",
+      "lotNumber": "4c0bbe105bf8",
+      "contact": [
+        {
+          "system": "phone",
+          "value": "+4685819917"
+        }
+      ]
+    },
+    {
+      "resourceType": "Goal",
+      "id": "#goal",
+      "subject": {
+        "reference": "Patient/1",
+      },
+      "description": "Lower Bloodpressure",
+      "status": "planned"
+    },
+    {
+      "resourceType": "Patient",
+      "id": "Patient/1",
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t<table>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Name</td>\n\t\t\t\t\t\t<td>Peter James \n              <b>Chalmers</b> (&quot;Jim&quot;)\n            </td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Address</td>\n\t\t\t\t\t\t<td>534 Erewhon, Pleasantville, Vic, 3999</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Contacts</td>\n\t\t\t\t\t\t<td>Home: unknown. Work: (03) 5555 6473</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Id</td>\n\t\t\t\t\t\t<td>MRN: 12345 (Acme Healthcare)</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</div>"
+      },
+      "active": true,
+      "name": [
+        {
+          "use": "official",
+          "family": "Chalmers",
+          "given": [
+            "Peter",
+            "James"
+          ]
+        },
+        {
+          "use": "usual",
+          "given": [
+            "Jim"
+          ]
+        },
+        {
+          "use": "maiden",
+          "family": "Windsor",
+          "given": [
+            "Peter",
+            "James"
+          ],
+          "period": {
+            "end": "2002"
+          }
+        }
+      ],
+      "managingOrganization": {
+        "reference": "Organization/1"
+      }
+    },
+    {
+      "resourceType": "Practitioner",
+      "id": "Practitioner/f201",
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Dr. Beverly Crusher</div>"
+      },
+      "name": [
+        {
+          "family": "Beverly",
+          "given": [
+            "Crusher"
+          ],
+          "prefix": [
+            "Dr"
+          ]
+        }
+      ],
+      "gender": "female"
+    },
+    {
+      "resourceType": "CareTeam",
+      "id": "careteam",
+      "participant": [
+        {
+          "member": {
+            "reference": "Practitioner/f001"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Condition",
+      "id": "Condition/f201",
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f201</p><p><b>identifier</b>: 12345</p><p><b>clinicalStatus</b>: resolved</p><p><b>verificationStatus</b>: confirmed</p><p><b>category</b>: Problem <span>(Details : {SNOMED CT code '55607006' = 'Problem', given as 'Problem'}; {http://hl7.org/fhir/condition-category code 'problem-list-item' = 'Problem List Item)</span></p><p><b>severity</b>: Mild <span>(Details : {SNOMED CT code '255604002' = 'Mild', given as 'Mild'})</span></p><p><b>code</b>: Fever <span>(Details : {SNOMED CT code '386661006' = 'Fever', given as 'Fever'})</span></p><p><b>bodySite</b>: Entire body as a whole <span>(Details : {SNOMED CT code '38266002' = 'Body as a whole', given as 'Entire body as a whole'})</span></p><p><b>subject</b>: <a>Roel</a></p><p><b>context</b>: <a>Encounter/f201</a></p><p><b>onset</b>: 02/04/2013</p><p><b>abatement</b>: around April 9, 2013</p><p><b>assertedDate</b>: 04/04/2013</p><p><b>asserter</b>: <a>Practitioner/f201</a></p><h3>Evidences</h3><table><tr><td>-</td><td><b>Code</b></td><td><b>Detail</b></td></tr><tr><td>*</td><td>degrees C <span>(Details : {SNOMED CT code '258710007' = 'degrees C', given as 'degrees C'})</span></td><td><a>Temperature</a></td></tr></table></div>"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "386661006",
+            "display": "Fever"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/1"
+      }
+    }
+  ]
+}
