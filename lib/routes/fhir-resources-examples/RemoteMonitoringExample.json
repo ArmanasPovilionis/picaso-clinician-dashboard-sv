@@ -20,7 +20,7 @@
   },
   "addresses": [
     {
-      "reference": "Condition/f201",
+      "reference": "Condition/f201"
     }
   ],
   "careTeam": [
@@ -94,6 +94,10 @@
           "url": "http://www.picaso-project.eu/fhir/notification",
           "extension": [
             {
+              "url": "NotificationType",
+              "valueString": "BloodRange"
+            },
+            {
               "url": "NotificationCondition",
               "extension": [
                 {
@@ -125,7 +129,7 @@
               ]
             },
             {
-              "url": "NotificationType",
+              "url": "NotificationMeans",
               "valueString": "flag"
             },
             {
@@ -149,21 +153,25 @@
           "url": "http://www.picaso-project.eu/fhir/notification",
           "extension": [
             {
+              "url": "NotificationType",
+              "valueString": "NoMeasurements"
+            },
+            {
               "url": "NotificationCondition",
               "extension": [
                 {
-                  "url": "noMeasurementDays",
+                  "url": "NoMeasurementDays",
                   "valueInteger": 3
                 }
               ]
             },
             {
-              "url": "NotificationType",
+              "url": "NotificationMeans",
               "valueString": "email"
             },
             {
               "url": "NotificationMessage",
-              "valueString": "msg"
+              "valueString": "No measurement"
             },
             {
               "url": "NotificationEmail",
@@ -175,7 +183,7 @@
     },
     {
       "resourceType": "DeviceRequest",
-      "id": "#DeviceRequest/walk",
+      "id": "#DeviceRequest/exercise",
       "text": {
         "status": "generated",
         "div": "<div>Use activity meter at home</div>"
@@ -202,61 +210,6 @@
               "url": "NotificationCondition",
               "extension": [
                 {
-                  "url": "systolicRange",
-                  "valueRange": {
-                    "low": {
-                      "value": 50,
-                      "unit": "mmHg"
-                    },
-                    "high": {
-                      "value": 90,
-                      "unit": "mmHg"
-                    }
-                  }
-                },
-                {
-                  "url": "diastolicRange",
-                  "valueRange": {
-                    "low": {
-                      "value": 50,
-                      "unit": "mmHg"
-                    },
-                    "high": {
-                      "value": 90,
-                      "unit": "mmHg"
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "url": "NotificationType",
-              "valueString": "flag"
-            },
-            {
-              "url": "NotificationTiming",
-              "valueTiming": {
-                "repeat": {
-                  "frequency": 1,
-                  "period": 4,
-                  "periodUnits": "h",
-                  "periodMax": 6
-                }
-              }
-            },
-            {
-              "url": "NotificationMessage",
-              "valueString": "msg"
-            }
-          ]
-        },
-        {
-          "url": "http://www.picaso-project.eu/fhir/notification",
-          "extension": [
-            {
-              "url": "NotificationCondition",
-              "extension": [
-                {
                   "url": "noMeasurementDays",
                   "valueInteger": 3
                 }
@@ -268,7 +221,7 @@
             },
             {
               "url": "NotificationMessage",
-              "valueString": "msg"
+              "valueString": "No measurement has been received"
             },
             {
               "url": "NotificationEmail",
@@ -437,7 +390,7 @@
       "resourceType": "Goal",
       "id": "#goal",
       "subject": {
-        "reference": "Patient/1",
+        "reference": "Patient/1"
       },
       "description": "Lower Bloodpressure",
       "status": "planned"
