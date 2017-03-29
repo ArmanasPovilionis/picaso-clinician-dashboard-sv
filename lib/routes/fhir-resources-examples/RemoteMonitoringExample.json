@@ -51,26 +51,23 @@
       "display": "Walk 5000 steps per day"
     },
     {
-      "reference": "#Appointment/1",
-      "display": "Blood Pressure Monitoring results discussion"
-    },
-    {
-      "reference": "#01RA07",
+      "reference": "Questionnaire.FFbH_UDUS",
       "display": "Answer Questionnaire"
     },
     {
-      "reference": "#MoriskyScaleUDUS",
-      "display": "Answer Questionnaire"
+      "reference": "Appointment.1",
+      "display": "Appointment for Blood Pressure Monitoring results discussion"
     },
     {
-      "reference": "#FFbH_UDUS",
-      "display": "Answer Questionnaire"
+      "reference": "Medication.1",
+      "display": "Medication"
     }
   ],
   "contained": [
     {
       "resourceType": "DeviceRequest",
       "id": "#DeviceRequest/blood",
+      "intent": "active",
       "text": {
         "status": "generated",
         "div": "<div>Use BPM at home</div>"
@@ -184,6 +181,7 @@
     {
       "resourceType": "DeviceRequest",
       "id": "#DeviceRequest/exercise",
+      "intent": "active",
       "text": {
         "status": "generated",
         "div": "<div>Use activity meter at home</div>"
@@ -210,13 +208,17 @@
               "url": "NotificationCondition",
               "extension": [
                 {
-                  "url": "noMeasurementDays",
-                  "valueInteger": 3
+                  "url": "numOfSteps",
+                  "valueInteger": 100
                 }
               ]
             },
             {
               "url": "NotificationType",
+              "valueString": "Exercise"
+            },
+            {
+              "url": "NotificationMeans",
               "valueString": "email"
             },
             {
@@ -225,30 +227,68 @@
             },
             {
               "url": "NotificationEmail",
-              "valueString": "mail"
+              "valueString": "mail@picaso.com"
             }
           ]
         }
       ]
     },
     {
-      "resourceType": "Appointment",
-      "id": "#Appointment/1",
+      "resourceType": "Questionnaire",
+      "id": "Questionnaire.FFbH_UDUS",
       "text": {
         "status": "generated",
-        "div": "<div>Blood Pressure Monitoring results discussion</div>"
+        "div": "<div>FFbH_UDUS</div>"
       },
-      "status": "booked",
-      "type": {
+      "uri": "",
+      "extension": [
+        {
+          "url": "http://www.picaso-project.eu/fhir/notification",
+          "extension": [
+            {
+              "url": "NotificationType",
+              "valueString": "QuestionnaireNotification"
+            },
+            {
+              "url": "NotificationTiming",
+              "valueTiming": {
+                "repeat": {
+                  "frequency": 1,
+                  "period": 4,
+                  "periodUnits": "h",
+                  "periodMax": 6
+                }
+              }
+            },
+            {
+              "url": "NotificationMeans",
+              "valueString": "flag"
+            },
+            {
+              "url": "NotificationMessage",
+              "valueString": "Please fill the questionnaire"
+            }
+          ]
+        }
+      ]
+
+    },
+    {
+      "resourceType": "Appointment",
+      "id": "Appointment.1",
+      "text": {
+        "status": "generated",
+        "div": "Discussion on the results of your Blood Pressure Monitoring"
+      },
+      "status": "proposed",
+      "appointmentType": {
         "coding": [
           {
-            "code": "52",
-            "display": "General Discussion"
+            "code": "FOLLOWUP",
+            "display": "A follow up visit from a previous appointment"
           }
         ]
       },
-      "priority": 5,
-      "description": "Discussion on the results of your Blood Pressure Monitoring",
       "start": "2016-12-10T09:00:00Z",
       "end": "2016-12-10T11:00:00Z",
       "comment": "Further expand on the results of the Blood Pressure Monitoring and determine the next actions that may be appropriate.",
@@ -277,14 +317,36 @@
           },
           "required": "required",
           "status": "accepted"
-        },
+        }
+      ],
+      "extension": [
         {
-          "actor": {
-            "reference": "Location/1",
-            "display": "Schloss Birlinghoven, Konrad-Adenauer-Straße, 53754 Sankt Augustin"
-          },
-          "required": "required",
-          "status": "accepted"
+          "url": "http://www.picaso-project.eu/fhir/notification",
+          "extension": [
+            {
+              "url": "NotificationType",
+              "valueString": "AppointmentNotification"
+            },
+            {
+              "url": "NotificationTiming",
+              "valueTiming": {
+                "repeat": {
+                  "frequency": 1,
+                  "period": 4,
+                  "periodUnits": "h",
+                  "periodMax": 6
+                }
+              }
+            },
+            {
+              "url": "NotificationMeans",
+              "valueString": "flag"
+            },
+            {
+              "url": "NotificationMessage",
+              "valueString": "Please arrange the appointment"
+            }
+          ]
         }
       ]
     },
@@ -326,7 +388,7 @@
         ],
         "text": "BPM"
       },
-      "status": "available",
+      "status": "active",
       "manufacturer": "A&D Medical",
       "model": "UA-767NFC",
       "lotNumber": "4c0bbe105be8",
@@ -375,7 +437,7 @@
         ],
         "text": "Activity Monitor"
       },
-      "status": "available",
+      "status": "active",
       "manufacturer": "Apple",
       "model": "Apple Watch V2",
       "lotNumber": "4c0bbe105bf8",
