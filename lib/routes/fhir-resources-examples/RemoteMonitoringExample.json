@@ -43,24 +43,19 @@
   ],
   "activity": [
     {
-      "reference": "#DeviceRequest/blood",
-      "display": "Take Blood pressure"
+      "reference": "#DeviceRequest/blood"
     },
     {
-      "reference": "#DeviceRequest/exercise",
-      "display": "Walk 5000 steps per day"
+      "reference": "#DeviceRequest/exercise"
     },
     {
-      "reference": "Questionnaire.FFbH_UDUS",
-      "display": "Answer Questionnaire"
+      "reference": "Questionnaire.FFbH_UDUS"
     },
     {
-      "reference": "Appointment.1",
-      "display": "Appointment for Blood Pressure Monitoring results discussion"
+      "reference": "Appointment.1"
     },
     {
-      "reference": "Medication.1",
-      "display": "Medication"
+      "reference": "Medication.1"
     }
   ],
   "contained": [
@@ -87,6 +82,13 @@
         }
       },
       "extension": [
+        {
+          "url": "http://www.picaso-project.eu/fhir/service",
+          "extension": [{
+            "url": "ServiceName",
+            "valueString": "Blood measurement"
+          }]
+        },
         {
           "url": "http://www.picaso-project.eu/fhir/notification",
           "extension": [
@@ -222,6 +224,13 @@
       },
       "extension": [
         {
+          "url": "http://www.picaso-project.eu/fhir/service",
+          "extension": [{
+            "url": "ServiceName",
+            "valueString": "Exercise"
+          }]
+        },
+        {
           "url": "http://www.picaso-project.eu/fhir/notification",
           "extension": [
             {
@@ -278,6 +287,13 @@
       "uri": "MoriskyScaleUDUS",
       "extension": [
         {
+          "url": "http://www.picaso-project.eu/fhir/service",
+          "extension": [{
+            "url": "ServiceName",
+            "valueString": "Questionnaire Request"
+          }]
+        },
+        {
           "url": "http://www.picaso-project.eu/fhir/timing",
           "valueTiming": {
             "repeat": {
@@ -317,7 +333,6 @@
           ]
         }
       ]
-
     },
     {
       "resourceType": "Appointment",
@@ -402,6 +417,13 @@
         }
       ],
       "extension": [
+        {
+          "url": "http://www.picaso-project.eu/fhir/service",
+          "extension": [{
+            "url": "ServiceName",
+            "valueString": "Appointment Request"
+          }]
+        },
         {
           "url": "http://www.picaso-project.eu/fhir/notification",
           "extension": [
