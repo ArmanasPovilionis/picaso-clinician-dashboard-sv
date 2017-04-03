@@ -49,6 +49,9 @@
       "reference": "#DeviceRequest/exercise"
     },
     {
+      "reference": "#DeviceRequest/weight"
+    },
+    {
       "reference": "Questionnaire.FFbH_UDUS"
     },
     {
@@ -274,6 +277,71 @@
       ]
     },
     {
+      "resourceType": "DeviceRequest",
+      "id": "#DeviceRequest/weight",
+      "intent": "active",
+      "text": {
+        "status": "generated",
+        "div": "Measure Weigth"
+      },
+      "device": {
+        "reference": "#Device/AM0123"
+      },
+      "subject": {
+        "reference": "Patient/1"
+      },
+      "extension": [
+        {
+          "url": "http://www.picaso-project.eu/fhir/service",
+          "extension": [{
+            "url": "ServiceName",
+            "valueString": "Weight Measurement"
+          }]
+        },
+        {
+          "url": "http://www.picaso-project.eu/fhir/notification",
+          "extension": [
+            {
+              "url": "NotificationCondition",
+              "extension": [
+                {
+                  "url": "maxWeight",
+                  "valueInteger": 100
+                }
+              ]
+            },
+            {
+              "url": "NotificationTiming",
+              "valueTiming": {
+                "repeat": {
+                  "frequency": 1,
+                  "period": 4,
+                  "periodUnits": "h",
+                  "periodMax": 6
+                }
+              }
+            },
+            {
+              "url": "NotificationType",
+              "valueString": "WeightMeasurement"
+            },
+            {
+              "url": "NotificationMeans",
+              "valueString": "email"
+            },
+            {
+              "url": "NotificationMessage",
+              "valueString": "No measurement has been received"
+            },
+            {
+              "url": "NotificationEmail",
+              "valueString": "mail@picaso.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "resourceType": "Questionnaire",
       "id": "Questionnaire.FFbH_UDUS",
       "text": {
@@ -400,7 +468,7 @@
             {
               "coding": [
                 {
-                  "system": "http://hl7.org/fhir/v3/ParticipationType",
+                  "system": "http://hl7.org/fhir/ValueSet/encounter-participant-type",
                   "code": "ATND"
                 }
               ]
