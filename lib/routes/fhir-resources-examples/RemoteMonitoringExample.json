@@ -58,7 +58,7 @@
       "reference": "Appointment.1"
     },
     {
-      "reference": "Medication.1"
+      "reference": "MedicationRequest.1"
     }
   ],
   "contained": [
@@ -87,10 +87,12 @@
       "extension": [
         {
           "url": "http://www.picaso-project.eu/fhir/service",
-          "extension": [{
-            "url": "ServiceName",
-            "valueString": "Blood measurement"
-          }]
+          "extension": [
+            {
+              "url": "ServiceName",
+              "valueString": "Blood measurement"
+            }
+          ]
         },
         {
           "url": "http://www.picaso-project.eu/fhir/notification",
@@ -228,10 +230,12 @@
       "extension": [
         {
           "url": "http://www.picaso-project.eu/fhir/service",
-          "extension": [{
-            "url": "ServiceName",
-            "valueString": "Exercise"
-          }]
+          "extension": [
+            {
+              "url": "ServiceName",
+              "valueString": "Exercise"
+            }
+          ]
         },
         {
           "url": "http://www.picaso-project.eu/fhir/notification",
@@ -293,10 +297,12 @@
       "extension": [
         {
           "url": "http://www.picaso-project.eu/fhir/service",
-          "extension": [{
-            "url": "ServiceName",
-            "valueString": "Weight Measurement"
-          }]
+          "extension": [
+            {
+              "url": "ServiceName",
+              "valueString": "Weight Measurement"
+            }
+          ]
         },
         {
           "url": "http://www.picaso-project.eu/fhir/notification",
@@ -356,10 +362,12 @@
       "extension": [
         {
           "url": "http://www.picaso-project.eu/fhir/service",
-          "extension": [{
-            "url": "ServiceName",
-            "valueString": "Questionnaire Request"
-          }]
+          "extension": [
+            {
+              "url": "ServiceName",
+              "valueString": "Questionnaire Request"
+            }
+          ]
         },
         {
           "url": "http://www.picaso-project.eu/fhir/timing",
@@ -487,10 +495,12 @@
       "extension": [
         {
           "url": "http://www.picaso-project.eu/fhir/service",
-          "extension": [{
-            "url": "ServiceName",
-            "valueString": "Appointment Request"
-          }]
+          "extension": [
+            {
+              "url": "ServiceName",
+              "valueString": "Appointment Request"
+            }
+          ]
         },
         {
           "url": "http://www.picaso-project.eu/fhir/notification",
@@ -718,6 +728,123 @@
       "subject": {
         "reference": "Patient.1"
       }
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "MedicationRequest.1",
+      "text": {
+        "status": "generated",
+        "div": "Simple medication"
+      },
+      "identifier": [
+        {
+          "use": "official",
+          "system": "http://www.bmc.nl/portal/prescriptions",
+          "value": "12345689"
+        }
+      ],
+      "status": "completed",
+      "intent": "order",
+      "priority": "routine",
+      "medicationCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "376988009",
+            "display": "Levothyroxine Sodium 75micrograms tablet (product)"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient.1"
+      },
+      "authoredOn": "2015-01-15",
+      "requester": {
+        "agent": {
+          "reference": "Practitioner/f201"
+        },
+        "onBehalfOf": {
+          "reference": "Organization/f002"
+        }
+      },
+      "reasonCode": [
+        {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "40930008",
+              "display": "Hypothyroidism (disorder)"
+            }
+          ]
+        }
+      ],
+      "dosageInstruction": [
+        {
+          "sequence": 1,
+          "text": "75mcg daily",
+          "timing": {
+            "repeat": {
+              "frequency": 1,
+              "period": 1,
+              "periodUnit": "d"
+            }
+          },
+          "route": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "26643006",
+                "display": "Oral Route (qualifier value)"
+              }
+            ]
+          },
+          "doseQuantity": {
+            "value": 75,
+            "unit": "mcg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mcg"
+          }
+        }
+      ],
+      "extension": [
+        {
+          "url": "http://www.picaso-project.eu/fhir/service",
+          "extension": [
+            {
+              "url": "ServiceName",
+              "valueString": "Medication"
+            }
+          ]
+        },
+        {
+          "url": "http://www.picaso-project.eu/fhir/notification",
+          "extension": [
+            {
+              "url": "NotificationType",
+              "valueString": "ReminderNotification"
+            },
+            {
+              "url": "NotificationMeans",
+              "valueString": "flag"
+            },
+            {
+              "url": "NotificationTiming",
+              "valueTiming": {
+                "repeat": {
+                  "frequency": 1,
+                  "period": 4,
+                  "periodUnits": "h",
+                  "periodMax": 6
+                }
+              }
+            },
+            {
+              "url": "NotificationMessage",
+              "valueString": "Take your medication"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
